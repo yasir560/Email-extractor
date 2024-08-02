@@ -1,3 +1,10 @@
+/* Apply box-sizing: border-box to all elements for consistent box model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -6,6 +13,8 @@ body {
     height: 100vh;
     background-color: #e0f7fa; /* Soft blue background */
     margin: 0;
+    padding: 0; /* Ensure there's no padding causing the overflow */
+    overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
 .container {
@@ -15,6 +24,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 100%;
+    margin: 0 20px; /* Prevent the container from touching the viewport edge */
 }
 
 h1, h2 {
@@ -30,6 +40,7 @@ textarea {
     font-size: 16px;
     border: 1px solid #bbb; /* Slightly darker border for contrast */
     border-radius: 8px; /* More rounded corners */
+    resize: none; /* Prevent resizing to keep layout consistent */
 }
 
 .buttons {
