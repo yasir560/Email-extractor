@@ -9,14 +9,15 @@
 <body>
     <div class="container">
         <h1>Email Extractor</h1>
-        <textarea id="inputText" placeholder="Paste your text here..."></textarea>
+        <textarea id="inputText" placeholder="Paste your text here..." oninput="updateLineNumbers()"></textarea>
         <div class="buttons">
             <button onclick="extractEmails()">Extract Emails</button>
             <button onclick="clearData()">Clear</button>
         </div>
         <h2>Extracted Emails:</h2>
-        <div id="outputEmails"></div>
+        <div id="outputEmails" class="output-container"></div>
         <button id="copyButton" onclick="copyEmails()" style="display: none;">Copy Emails</button>
+        <p id="emailCount">Emails Extracted: 0</p>
     </div>
     <script src="script.js"></script>
 </body>
