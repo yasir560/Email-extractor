@@ -41,17 +41,25 @@ textarea {
     border: 1px solid #bbb; /* Slightly darker border for contrast */
     border-radius: 8px; /* More rounded corners */
     resize: none; /* Prevent resizing to keep layout consistent */
+    width: 100%; /* Ensures textarea does not overflow */
+    max-width: 100%; /* Ensures textarea does not overflow */
 }
 
 .buttons {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; /* Stack buttons vertically on small screens */
     gap: 10px; /* Gap between buttons */
     margin-bottom: 20px; /* Increased margin for spacing */
 }
 
+@media (min-width: 600px) {
+    .buttons {
+        flex-direction: row; /* Use row layout on larger screens */
+    }
+}
+
 button {
-    width: 48%;
+    width: 100%; /* Set button width to 100% on small screens */
     padding: 12px; /* Increased padding for better click area */
     background-color: #ff6f61; /* Warm coral color */
     color: white;
@@ -77,6 +85,8 @@ button:active {
     border-radius: 8px; /* More rounded corners */
     padding: 12px; /* Increased padding for better readability */
     margin-top: 20px; /* Increased margin for spacing */
+    max-height: 300px; /* Limit height for scrolling */
+    overflow-y: auto; /* Allow scrolling */
 }
 
 /* Additional styling for email count */
@@ -86,10 +96,7 @@ button:active {
     font-weight: bold;
     color: #333;
 }
-#outputEmails {
-    max-height: 300px;
-    overflow-y: auto;
-}
+
 #outputContainer {
     height: auto; /* set height to auto */
     min-height: 300px; /* set minimum height to 300px */
