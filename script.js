@@ -14,16 +14,20 @@ function extractEmails() {
     const uniqueEmails = [...new Set(emails)];
 
     if (uniqueEmails.length > 0) {
-        // Display each email with its serial number in the output container
-        uniqueEmails.forEach((email, index) => {
+        // Display each email without serial number in the output container
+        uniqueEmails.forEach((email) => {
             const emailElement = document.createElement('div');
             emailElement.className = 'output-email'; // Add class for styling
-            emailElement.textContent = `${index + 1}. ${email}`;  // Serial number + email
+            emailElement.textContent = email;  // Only display the email
             output.appendChild(emailElement);
         });
 
         emailCountElement.textContent = `Emails Extracted: ${uniqueEmails.length}`;
         document.getElementById('copyButton').style.display = 'block';
+
+        // Hide input container and show output container
+        document.getElementById('inputContainer').style.display = 'none';
+        document.getElementById('outputContainer').style.display = 'block';
     } else {
         output.textContent = 'No valid email addresses found.';
         emailCountElement.textContent = 'Emails Extracted: 0';
@@ -36,8 +40,21 @@ function clearData() {
     document.getElementById('outputEmails').innerHTML = '';
     document.getElementById('emailCount').textContent = 'Emails Extracted: 0';
     document.getElementById('copyButton').style.display = 'none';
-}
 
+    // Show input container and hide output container
+    document.getElementById('inputContainer').style.display = 'block';
+    document.getElementById('outputContainer').style.display = 'none';
+}
+function clearData() {
+    document.getElementById('inputText').value = '';
+    document.getElementById('outputEmails').innerHTML = '';
+    document.getElementById('emailCount').textContent = 'Emails Extracted: 0';
+    document.getElementById('copyButton').style.display = 'none';
+
+    // Show input container and hide output container
+    document.getElementById('inputContainer').style.display = 'block';
+    document.getElementById('outputContainer').style.display = 'none';
+}
 function copyEmails() {
     const output = document.getElementById('outputEmails');
     let emailsText = '';
@@ -45,7 +62,7 @@ function copyEmails() {
     // Extract all text content (emails) from the output div
     const emails = output.querySelectorAll('.output-email');
     emails.forEach(emailDiv => {
-        emailsText += emailDiv.textContent + '\n'; // Add each email with its serial number
+        emailsText += emailDiv.textContent + '\n'; // Add each email without serial number
     });
 
     // Copy the extracted emails to clipboard
