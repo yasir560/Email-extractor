@@ -27,6 +27,8 @@ body {
     margin: 20px; /* Added margin for better spacing */
     overflow-y: auto; /* Add scroll if content exceeds height */
     min-height: 500px; /* Ensure a minimum height */
+    position: relative; /* Added for positioning */
+    left: 0; /* Reset left position */
 }
 
 h1, h2 {
@@ -103,4 +105,17 @@ button:active {
     overflow-y: auto;
     padding: 10px;
     border: 1px solid #ccc;
+}
+
+/* Ensure container does not overflow */
+@media (max-width: 800px) {
+    .container {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+    button {
+        width: 100%; /* Ensure buttons take full width */
+    }
+    textarea {
+        width: calc(100% - 24px); /* Ensure textarea fits in the container */
+    }
 }
