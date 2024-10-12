@@ -29,6 +29,8 @@ body {
     min-height: 500px; /* Ensure a minimum height */
     position: relative; /* Added for positioning */
     left: 0; /* Reset left position */
+    padding-left: 20px; /* Add space on left side */
+    padding-right: 20px; /* Add space on right side */
 }
 
 h1, h2 {
@@ -63,8 +65,8 @@ textarea {
 button {
     width: 100%; /* Set button width to 100% on small screens */
     padding: 12px; /* Increased padding for better click area */
-    background-color: #ff6f61; /* Warm coral color */
-    color: white;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color */
     border: none;
     border-radius: 8px; /* More rounded corners */
     font-size: 16px;
@@ -74,7 +76,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff4a3b; /* Slightly darker coral */
+    background-color: #333; /* Darker black on hover */
     transform: translateY(-2px);
 }
 
